@@ -1,16 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class MoveBackground : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //float screenWidth;
+    public float backgroundSpeed = 0.5f;
+    SpriteRenderer backgroundSpriteRenderer;
     void Start()
     {
-        
+        backgroundSpriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        float offset = Time.time * backgroundSpeed;
+        backgroundSpriteRenderer.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }
 }
