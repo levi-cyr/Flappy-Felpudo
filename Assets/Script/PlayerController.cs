@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     bool isClicking;
-    Vector2 impulse = new Vector2(0, 500f);
+    Vector2 impulse = new Vector2(0, 300f);
     Rigidbody2D playerRb;
     void Start()
     {
