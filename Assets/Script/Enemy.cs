@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Die () // quando o inimigo | boss morrer
     {
-        
+        Destroy(gameObject);
+        Debug.Log(gameObject.name + "morreu");
     }
-
-    // Update is called once per frame
-    void Update()
+    void TakeDamage() // para o boss
     {
         
     }
