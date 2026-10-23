@@ -19,7 +19,7 @@ public class ControlaJogador : MonoBehaviour {
     
       if (!comecou) {
         comecou = true;
-        corpoJogador.isKinematic = false;
+        //corpoJogador.isKinematic = false;
       }
 
       corpoJogador.linearVelocity = new Vector2 (0, 0);
