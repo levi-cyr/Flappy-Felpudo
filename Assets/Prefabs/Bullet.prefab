@@ -181,3 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   speed: 20
   bulletRb: {fileID: 5570791887694795551}
+  enemyScript: {fileID: 217239992850806195, guid: eb4523d2de9593341b7f5c567955b463, type: 3}
