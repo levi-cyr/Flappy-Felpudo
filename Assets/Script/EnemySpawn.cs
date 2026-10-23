@@ -8,7 +8,7 @@ public class EnemySpawn : MonoBehaviour
     //intervalo entre spawns (segundos)
     public float timeBetweenSpawn = 3f;
     //limites de spawn no cenário
-    public float limitX = 8f;
+    public float limitX = 10f;
     public float limitY = 4f;
     //velocidade de movimento dos inimigos
     public float speed = 3f;
@@ -24,10 +24,9 @@ public class EnemySpawn : MonoBehaviour
     void EnemySpawner()
     {
         //define posição de spawn (à direita da tela)
-        float x = limitX;
         float y = Random.Range(-limitY, limitY);
-        Vector2 randomPosition = new Vector2(x, y);
-
+        Vector2 randomPosition = new Vector2(limitX, y);
+        
         //instancia o inimigo
         GameObject enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
         //inicia o movimento automático (corrotina)
@@ -45,6 +44,7 @@ public class EnemySpawn : MonoBehaviour
             if (enemy.transform.position.x < destroyLimitX)
             {
                 Destroy(enemy);
+                Debug.Log("Destruiu inimigo");
                 yield break; // Sai da corrotina
             }
 
