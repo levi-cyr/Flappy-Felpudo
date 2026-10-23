@@ -1,16 +1,54 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawn : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //prefab do inimigo
+    public GameObject enemyPrefab;
+    //intervalo entre spawns (segundos)
+    public float timeBetweenSpawn = 3f;
+    //limites de spawn no cenário
+    public float limitX = 8f;
+    public float limitY = 4f;
+    //velocidade de movimento dos inimigos
+    public float speed = 3f;
+    //limite X para destruir o inimigo ao sair da tela
+    public float destroyLimitX = -12f;
+
     void Start()
     {
-        
+        //começa a gerar inimigos repetidamente
+        InvokeRepeating("EnemySpawner", 0f, timeBetweenSpawn);
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemySpawner()
     {
-        
+        //define posição de spawn (à direita da tela)
+        float x = limitX;
+        float y = Random.Range(-limitY, limitY);
+        Vector2 randomPosition = new Vector2(x, y);
+
+        //instancia o inimigo
+        GameObject enemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+        //inicia o movimento automático (corrotina)
+        StartCoroutine(MoveEnemy(enemy));
+    }
+
+    IEnumerator MoveEnemy(GameObject enemy)
+    {
+        while (enemy != null)
+        {
+            //move o inimigo da direita para a esquerda
+            enemy.transform.Translate(Vector2.left * speed * Time.deltaTime);
+
+            //se o inimigo sair do limite visível, destrói o objeto
+            if (enemy.transform.position.x < destroyLimitX)
+            {
+                Destroy(enemy);
+                yield break; // Sai da corrotina
+            }
+
+            yield return null; // Espera o próximo frame
+        }
     }
 }
