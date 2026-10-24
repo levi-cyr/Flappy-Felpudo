@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Shoot();
+       PlayerVerticalMovement();
     }
     void FixedUpdate()
     {
-        PlayerMovement();
+        PlayerHorizontalMovement();
     }
-    void Shoot()
+    void PlayerVerticalMovement()
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayerMovement()
+    void PlayerHorizontalMovement()
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
         playerRb.linearVelocityX = horizontalMovement * playerSpeed;
