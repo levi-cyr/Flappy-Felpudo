@@ -253,7 +253,7 @@ MonoBehaviour:
   playerSpeed: 3
   timerScript: {fileID: 554964967}
   defeatText: {fileID: 1758963814}
-  enemySpawn: {fileID: 0}
+  enemySpawn: {fileID: 1819816087}
 --- !u!61 &5007692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 439582951}
   m_Layer: 0
   m_Name: Uruca (Boss)
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,7 +528,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -837,7 +837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29492258732e9841a391119eb42259a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
-  enemiesKilled: 0
+  enemiesKilled: 9
+  boss: {fileID: 439582950}
   enemySpawn: {fileID: 1819816087}
   killCountText: {fileID: 1067782820}
 --- !u!1 &596880191

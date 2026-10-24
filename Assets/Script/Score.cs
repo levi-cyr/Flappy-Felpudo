@@ -4,16 +4,12 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int enemiesKilled = 0;
+    public GameObject boss;
     [Header("Scripts")]
     public EnemySpawn enemySpawn;
-    Timer timerScript;
     [Header("Text")]
     public TMP_Text killCountText;
 
-    void Start()
-    {
-        timerScript = timerScript.GetComponent<Timer>();
-    }
     void Update()
     {
         killCountText.text = "Inimigos derrotados: " + enemiesKilled;
@@ -25,6 +21,7 @@ public class Score : MonoBehaviour
         if (enemiesKilled >= 10)
         {
             enemySpawn.CancelEnemySpawner(); // cancela o spawn de inimigo
+            boss.SetActive(true); // ativa o game objecto do boss
         }
     }
 }
