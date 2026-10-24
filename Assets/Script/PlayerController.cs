@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     Vector2 impulse = new Vector2(0, 300f);
     Rigidbody2D playerRb;
     public float playerSpeed = 3f;
+    public Timer timerScript;
+    public GameObject defeatText;
+    public EnemySpawn enemySpawn;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -13,13 +16,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       PlayerVerticalMovement();
+        PlayerVerticalMovement();
     }
     void FixedUpdate()
     {
         PlayerHorizontalMovement();
     }
-    void PlayerVerticalMovement()
+    void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -32,13 +35,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayerHorizontalMovement()
+    void PlayerHorizontalMovement() // controla a movimentação horizontal do player (A e D ou <- e ->)
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
         playerRb.linearVelocityX = horizontalMovement * playerSpeed;
     }
-    public void PlayerDeath()
+    public void PlayerDeath() // chama a morte do player
     {
         Destroy(gameObject); // adicionar funções para a morte do player aqui
+        timerScript.stopTime = true; // para o timer
+        defeatText.SetActive(true); // mostra a tela de derrota
+        enemySpawn.CancelEnemySpawner(); // cancela o spawn de inimigos
     }
 }
