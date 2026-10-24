@@ -4,8 +4,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public TMP_Text timeLevel_txt;
-    public static float timeLevel = 60f;
+    public TMP_Text timer;
+    public float timeLeft = 60f;
     public static bool stopTime;
     void Start()
     {
@@ -16,8 +16,8 @@ public class Timer : MonoBehaviour
     {
         if (stopTime == false)
         {
-            timeLevel = timeLevel - Time.deltaTime;
-            timeLevel_txt.text = "Tempo: " + timeLevel.ToString("F0");
+            timeLeft = timeLeft - Time.deltaTime;
+            timer.text = "Tempo: " + timeLeft.ToString("F0");
         }
     } 
 }
