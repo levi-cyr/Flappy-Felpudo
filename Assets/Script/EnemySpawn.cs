@@ -9,7 +9,7 @@ public class EnemySpawn : MonoBehaviour
     public float timeBetweenSpawn = 3f;
     //limites de spawn no cenário
     public float limitX = 10f;
-    public float limitY = 4f;
+    public float limitY = 3.5f;
     //velocidade de movimento dos inimigos
     public float speed = 3f;
     //limite X para destruir o inimigo ao sair da tela
@@ -33,6 +33,11 @@ public class EnemySpawn : MonoBehaviour
         StartCoroutine(MoveEnemy(enemy));
     }
 
+    public void CancelEnemySpawner() // faz o inimigo parar de spawnar
+    {
+        CancelInvoke("EnemySpawner"); 
+        StopCoroutine("MoveEnemy"); 
+    }
     IEnumerator MoveEnemy(GameObject enemy)
     {
         while (enemy != null)
