@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
 {
     public TMP_Text timer;
     public float timeLeft = 60f;
-    public static bool stopTime;
+    public bool stopTime;
     void Start()
     {
         stopTime = false;
