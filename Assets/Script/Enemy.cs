@@ -11,4 +11,14 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController playerGameObj = collision.GetComponent<PlayerController>();
+
+        if (collision.CompareTag("Player"))
+        {
+            playerGameObj.PlayerDeath();
+        }
+    }
 }
