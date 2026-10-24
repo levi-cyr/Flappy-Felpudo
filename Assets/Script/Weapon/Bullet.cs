@@ -4,10 +4,23 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D bulletRb;
-    Enemy enemyScript;
+    public float destroyLimitX = 10f;
     void Start()
     {
         bulletRb.linearVelocity = transform.right * speed;
+    }
+
+    void Update()
+    {
+        DestroyBullet();
+    }
+
+    void DestroyBullet()
+    {
+        if (gameObject.transform.position.x > destroyLimitX)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D hit)
