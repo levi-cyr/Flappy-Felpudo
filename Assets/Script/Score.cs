@@ -4,8 +4,16 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int enemiesKilled = 0;
-    public TMP_Text killCountText;
+    [Header("Scripts")]
     public EnemySpawn enemySpawn;
+    Timer timerScript;
+    [Header("Text")]
+    public TMP_Text killCountText;
+
+    void Start()
+    {
+        timerScript = timerScript.GetComponent<Timer>();
+    }
     void Update()
     {
         killCountText.text = "Inimigos derrotados: " + enemiesKilled;
