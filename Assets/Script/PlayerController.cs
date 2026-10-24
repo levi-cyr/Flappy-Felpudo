@@ -37,4 +37,8 @@ public class PlayerController : MonoBehaviour
         float horizontalMovement = Input.GetAxis("Horizontal");
         playerRb.linearVelocityX = horizontalMovement * playerSpeed;
     }
+    public void PlayerDeath()
+    {
+        Destroy(gameObject); // adicionar funções para a morte do player aqui
+    }
 }
