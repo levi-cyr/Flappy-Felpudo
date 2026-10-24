@@ -5,8 +5,10 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D bulletRb;
     public float destroyLimitX = 10f;
+    Score scoreScript;
     void Start()
     {
+        scoreScript = FindFirstObjectByType<Score>();
         bulletRb.linearVelocity = transform.right * speed;
     }
 
@@ -33,6 +35,12 @@ public class Bullet : MonoBehaviour
             {
                 enemyScript.Die(); // chama a função de morte do inimigo no script do enemy
             }
+
+            if (scoreScript != null)
+            {
+                scoreScript.enemiesKilled++;
+            }
+
             Destroy(gameObject); // destroi a bala
         }
     }

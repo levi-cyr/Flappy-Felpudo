@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4932063711323766677}
   - component: {fileID: 5432488195046901721}
   - component: {fileID: 5570791887694795551}
-  - component: {fileID: -6271452882133375235}
+  - component: {fileID: -6114253395091063537}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-6271452882133375235
+--- !u!114 &-6114253395091063537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,4 +181,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   speed: 20
   bulletRb: {fileID: 5570791887694795551}
-  enemyScript: {fileID: 7966804577146594263, guid: eb4523d2de9593341b7f5c567955b463, type: 3}
+  destroyLimitX: 10
+  scoreScript: {fileID: 0}
