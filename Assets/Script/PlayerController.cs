@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerHorizontalMovement();
     }
-    /*void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
+    void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour
             playerRb.linearVelocity = new Vector2(0, 0);
             playerRb.AddForce(impulse);
         }
-    } */
+    }
 
-    void PlayerHorizontalMovement() // controla a movimentação horizontal do player (A e D ou <- e ->)
+    /*void PlayerHorizontalMovement() // controla a movimentação horizontal do player (A e D ou <- e ->)
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
         playerRb.linearVelocityX = horizontalMovement * playerSpeed;
-    }
+    }*/
     public void PlayerDeath() // chama a morte do player
     {
         Destroy(gameObject); // adicionar funções para a morte do player aqui
