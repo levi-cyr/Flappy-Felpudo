@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //PlayerVerticalMovement();
+        PlayerVerticalMovement();
     }
     void FixedUpdate()
     {
-        PlayerHorizontalMovement();
+        //PlayerHorizontalMovement();
     }
     void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
     {
