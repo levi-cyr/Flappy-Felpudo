@@ -491,13 +491,15 @@ GameObject:
   - component: {fileID: 439582953}
   - component: {fileID: 439582952}
   - component: {fileID: 439582951}
+  - component: {fileID: 439582956}
+  - component: {fileID: 439582955}
   m_Layer: 0
   m_Name: Uruca (Boss)
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &439582951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -640,6 +642,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439582955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439582950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc68768d45ab67f4a94b7dce72993f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss
+  bossLife: 67
+  bossState: 0
+--- !u!50 &439582956
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439582950}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29492258732e9841a391119eb42259a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
-  enemiesKilled: 9
+  enemiesKilled: 10
   boss: {fileID: 439582950}
   enemySpawn: {fileID: 1819816087}
   killCountText: {fileID: 1067782820}
