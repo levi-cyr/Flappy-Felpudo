@@ -654,9 +654,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc68768d45ab67f4a94b7dce72993f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bossLife: 67
+  bossLife: 30
   bossState: 0
   scoreScript: {fileID: 554964968}
+  victoryText: {fileID: 1666016073}
 --- !u!50 &439582956
 Rigidbody2D:
   serializedVersion: 5
@@ -881,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29492258732e9841a391119eb42259a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
-  enemiesKilled: 9
+  enemiesKilled: 0
   isBossDead: 0
   boss: {fileID: 439582950}
   enemySpawn: {fileID: 1819816087}

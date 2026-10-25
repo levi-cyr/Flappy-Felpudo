@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int bossLife = 67; // vida do boss
+    public int bossLife = 30; // vida do boss
     public int bossState = 0;
     Rigidbody2D bossRb;
     public Score scoreScript;
