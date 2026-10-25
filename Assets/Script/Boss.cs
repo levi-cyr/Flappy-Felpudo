@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -5,6 +6,8 @@ public class Boss : MonoBehaviour
     public int bossLife = 67; // vida do boss
     public int bossState = 0;
     Rigidbody2D bossRb;
+    public Score scoreScript;
+    public GameObject victoryText;
 
     void Start()
     {
@@ -27,7 +30,9 @@ public class Boss : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        scoreScript.isBossDead = true; // chave de controle para não spawnar boss infinitamente
+        victoryText.SetActive(true); // ativa o texto de vitoria
+        gameObject.SetActive(false); //desativa o boss
     }
 
     void BossAI() // atualizar no futuro
