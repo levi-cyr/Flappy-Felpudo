@@ -11,7 +11,7 @@ public class ShootWeapon : MonoBehaviour
             Shoot();
         }
     }
-    void Shoot()
+    public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
