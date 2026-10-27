@@ -6,17 +6,19 @@ public class Boss : MonoBehaviour
     public int bossLife = 30; // vida do boss
     public int bossState = 0;
     Rigidbody2D bossRb;
+    Animator boosAnim;
     public Score scoreScript;
     public GameObject victoryText;
 
     void Start()
     {
         bossRb = GetComponent<Rigidbody2D>();
+        boosAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //BossAI();
+        BossAI();
     }
 
     void TakeDamage() // função de dano, tira 1 de vida do boss
@@ -35,12 +37,20 @@ public class Boss : MonoBehaviour
         gameObject.SetActive(false); //desativa o boss
     }
 
-    void BossAI() // atualizar no futuro
+    void BossAI() // atualizar no futuro | 27/10/2026 implementando algumas coisas
     {
+        if (bossState == 0 & bossLife == 1)
+        {
+            bossState = 1;
+            bossLife = 30;
+        }
+
         switch (bossState)
         {
             case 1:
                 Debug.Log("Fase 1 do Boss");
+                transform.position = new Vector3(5, -8.13f, 0);
+                boosAnim.SetBool("1stDefeat", true);
                 break;
             case 2:
                 Debug.Log("Fase 2 do boss");
