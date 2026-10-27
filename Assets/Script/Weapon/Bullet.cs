@@ -5,10 +5,14 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D bulletRb;
     public float destroyLimitX = 10f;
+    bool isExploding = false;
     Score scoreScript;
+    Animator bulletAnim;
+
     void Start()
     {
         scoreScript = FindFirstObjectByType<Score>();
+        bulletAnim = GetComponent<Animator>();
         bulletRb.linearVelocity = transform.right * speed;
     }
 
@@ -19,14 +23,37 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet()
     {
+        if (isExploding) 
+        {
+            return;
+        }
+
         if (gameObject.transform.position.x > destroyLimitX)
         {
             Destroy(gameObject);
         }
     }
 
+    void ExplodeAndDestroy() 
+    {
+        if (isExploding) 
+        {
+            return;
+        }
+        isExploding = true;
+        bulletAnim.SetTrigger("explode");
+        bulletRb.linearVelocity = Vector2.zero;
+
+        Destroy(gameObject, 0.3f);
+    }
+
+
     void OnTriggerEnter2D(Collider2D hit)
     {
+        if (isExploding) 
+        {
+            return;
+        }
         if (hit.CompareTag("Enemy"))
         {
             Enemy enemyScript = hit.GetComponent<Enemy>();
@@ -40,8 +67,15 @@ public class Bullet : MonoBehaviour
             {
                 scoreScript.enemiesKilled++;
             }
-
-            Destroy(gameObject); // destroi a bala
+            ExplodeAndDestroy();
+        }
+        if (hit.CompareTag("Boss"))
+        {
+            ExplodeAndDestroy();
+        }
+        if (hit.CompareTag("Limit")) 
+        {
+            ExplodeAndDestroy();
         }
     }
 }
