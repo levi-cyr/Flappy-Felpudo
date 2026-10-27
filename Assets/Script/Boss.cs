@@ -56,7 +56,7 @@ public class Boss : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             TakeDamage(); // caso a vida dele nao seja menor ou igual a 0, ele só leva dano
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }    
     }
 }
