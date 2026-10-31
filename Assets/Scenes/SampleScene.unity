@@ -657,10 +657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc68768d45ab67f4a94b7dce72993f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bossLife: 15
+  bossLife: 50
   bossState: 0
   scoreScript: {fileID: 554964968}
   victoryText: {fileID: 1666016073}
+  bossShootWeaponScript: {fileID: 439582958}
 --- !u!50 &439582956
 Rigidbody2D:
   serializedVersion: 5
@@ -702,7 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossShootWeapon
   firePoint: {fileID: 2004287804}
   bulletPrefab: {fileID: 8168598787497448363, guid: 1a1feb5b0d7fb4f4fae63dd10a5889fe, type: 3}
-  minCooldownTime: 1
+  minCooldownTime: 2
   maxCooldownTime: 4
   isShooting: 0
 --- !u!58 &439582959

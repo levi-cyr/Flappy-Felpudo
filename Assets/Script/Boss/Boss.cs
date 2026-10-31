@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int bossLife = 15; // vida do boss
+    public int bossLife = 50; // vida do boss
     public int bossState = 0;
     Rigidbody2D bossRb;
     Animator boosAnim;
@@ -45,6 +45,7 @@ public class Boss : MonoBehaviour
             ChangePhase(1); // vai para a primeira fase do boss. Removi do switch case pq ele tava chamando toda hora o script no update, entao assim fica melhor
         }
 
+        /*
         switch (bossState)
         {
             case 1:
@@ -57,6 +58,7 @@ public class Boss : MonoBehaviour
                 Debug.Log("Fase final do boss");
                 break;
         }
+        */
     }
 
     void ChangePhase(int newPhase)
@@ -65,7 +67,7 @@ public class Boss : MonoBehaviour
         if (bossState == 1)
         {
             Debug.Log("Fase 1 do Boss");
-            bossLife = 30;
+            bossLife = 100;
 
             boosAnim.SetBool("1stDefeat", true);
             bossShootWeaponScript.minCooldownTime = 1;
