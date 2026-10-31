@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public void Die() // quando o inimigo | boss morrer
+    public void Die() // quando o inimigo
     {
         Destroy(gameObject);
-        Debug.Log(gameObject.name + "morreu");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -14,7 +13,8 @@ public class Enemy : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            playerGameObj.PlayerDeath(); // destroi o gameObject do player
+            playerGameObj.TakeDamage(1); // dano no player
+            Die();
         }
     }
 }
