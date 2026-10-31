@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public Timer timerScript;
     public GameObject defeatText;
     public EnemySpawn enemySpawn;
+    public int currentLife = 4;
+    public GameObject[] heartIcons;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -18,10 +21,10 @@ public class PlayerController : MonoBehaviour
     {
         PlayerVerticalMovement();
     }
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         //PlayerHorizontalMovement();
-    }
+    }*/
     void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
     {
         if (Input.GetButtonDown("Fire1"))
@@ -40,9 +43,28 @@ public class PlayerController : MonoBehaviour
         float horizontalMovement = Input.GetAxis("Horizontal");
         playerRb.linearVelocityX = horizontalMovement * playerSpeed;
     }*/
-    public void PlayerDeath() // chama a morte do player
+    public void TakeDamage(int damage = 1) // chama a morte do player
     {
-        Destroy(gameObject); // adicionar funções para a morte do player aqui
+        currentLife -= damage; // o dano base é 1. Talvez eu coloque que o boss de 2 de dano na terceira fase (ou na segunda, nao sei se vou prosseguir com uma terceira fase)
+
+        UpdateHeartUI();
+
+        if(currentLife <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+    void UpdateHeartUI()
+    {
+        for (int i = 0; i < heartIcons.Length; i++) // loopa a quantidade de gameobject do coração que tem na cena para poder atualizar
+        {
+            heartIcons[i].SetActive(i < currentLife); // se o valor que o loop esta (i) for maior que a vida atual, 
+            // ele desativa esse valor e se for menor ele ativa. Caso a vida atual for igual ao valor do loop, ele tambem desativa
+        }
+    }
+    public void PlayerDeath()
+    {
+        Destroy(gameObject);
         timerScript.stopTime = true; // para o timer
         defeatText.SetActive(true); // mostra a tela de derrota
         enemySpawn.CancelEnemySpawner(); // cancela o spawn de inimigos
