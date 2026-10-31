@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int bossLife = 30; // vida do boss
+    public int bossLife = 15; // vida do boss
     public int bossState = 0;
     Rigidbody2D bossRb;
     Animator boosAnim;
     public Score scoreScript;
     public GameObject victoryText;
+    public BossShootWeapon bossShootWeaponScript;
 
     void Start()
     {
@@ -39,18 +40,15 @@ public class Boss : MonoBehaviour
 
     void BossAI() // atualizar no futuro | 27/10/2026 implementando algumas coisas
     {
-        if (bossState == 0 & bossLife == 1)
+        if (bossState == 0 && bossLife == 1)
         {
-            bossState = 1;
-            bossLife = 30;
+            ChangePhase(1); // vai para a primeira fase do boss. Removi do switch case pq ele tava chamando toda hora o script no update, entao assim fica melhor
         }
 
         switch (bossState)
         {
             case 1:
-                Debug.Log("Fase 1 do Boss");
-                transform.position = new Vector3(5, -8.13f, 0);
-                boosAnim.SetBool("1stDefeat", true);
+
                 break;
             case 2:
                 Debug.Log("Fase 2 do boss");
@@ -61,12 +59,25 @@ public class Boss : MonoBehaviour
         }
     }
 
+    void ChangePhase(int newPhase)
+    {
+        bossState = newPhase;
+        if (bossState == 1)
+        {
+            Debug.Log("Fase 1 do Boss");
+            bossLife = 30;
+
+            boosAnim.SetBool("1stDefeat", true);
+            bossShootWeaponScript.minCooldownTime = 1;
+            bossShootWeaponScript.maxCooldownTime = 3;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
             TakeDamage(); // caso a vida dele nao seja menor ou igual a 0, ele só leva dano
-            //Destroy(collision.gameObject);
-        }    
+        }
     }
 }
