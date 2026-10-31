@@ -7,10 +7,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         Debug.Log(gameObject.name + "morreu");
     }
-    void TakeDamage() // para o boss
-    {
-
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
