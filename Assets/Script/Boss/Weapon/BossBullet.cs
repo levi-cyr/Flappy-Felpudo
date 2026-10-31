@@ -53,6 +53,8 @@ public class BossBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hit)
     {
+        PlayerController playerGameObj = hit.GetComponent<PlayerController>();
+
         if (isExploding) 
         {
             return;
@@ -62,5 +64,11 @@ public class BossBullet : MonoBehaviour
         {
             ExplodeAndDestroy();
         }
+
+        if(hit.CompareTag("Player"))
+        {
+            playerGameObj.TakeDamage(1);
+            ExplodeAndDestroy();
+        }  
     }
 }
