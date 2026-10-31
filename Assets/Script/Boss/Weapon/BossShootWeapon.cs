@@ -5,7 +5,7 @@ public class BossShootWeapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public int minCooldownTime = 1;
+    public int minCooldownTime = 2;
     public int maxCooldownTime = 4;
     public bool isShooting = false;
 
