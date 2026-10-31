@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5156296482715647621}
   - component: {fileID: 6810744520302401694}
   - component: {fileID: 6768102237552022670}
-  - component: {fileID: 3724416738118820681}
   - component: {fileID: 7766367030889885880}
+  - component: {fileID: -3754603956489092652}
   m_Layer: 0
   m_Name: Boss Bullet
   m_TagString: Bullet
@@ -168,21 +168,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3724416738118820681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168598787497448363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a438258622a0e5f43a2666c8c9553dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  speed: 20
-  bulletRb: {fileID: 6768102237552022670}
-  destroyLimitX: 10
 --- !u!95 &7766367030889885880
 Animator:
   serializedVersion: 7
@@ -205,3 +190,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3754603956489092652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168598787497448363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c80cfa2672546a301db6f2cf7c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossBullet
+  speed: 25
+  bulletRb: {fileID: 6768102237552022670}
+  destroyLimitX: -10
+  shootWeaponScript: {fileID: 0}
+  minCooldownTime: 2
+  maxCooldownTime: 6
