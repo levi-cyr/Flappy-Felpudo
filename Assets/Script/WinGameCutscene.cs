@@ -15,6 +15,7 @@ public class WinGameCutscene : MonoBehaviour
 
     [Header("Game Object")]
     public GameObject creditsObject;
+    public GameObject creditsMusic;
 
     void Update()
     {
@@ -24,6 +25,7 @@ public class WinGameCutscene : MonoBehaviour
             cameraAnim.SetTrigger("isEndGame"); // chama a animação da camera e limite do jogo
             bottomAnim.SetTrigger("isEndGame");
             creditsObject.SetActive(true);
+            creditsMusic.SetActive(true);
         }
     }
 }
