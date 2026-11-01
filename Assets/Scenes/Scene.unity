@@ -349,6 +349,7 @@ MonoBehaviour:
   firePoint: {fileID: 1103767777}
   bulletPrefab: {fileID: 6921079374797425536, guid: 70d899792bf14ba44ab046930f8dc59a, type: 3}
   shootSoundEffect: {fileID: 1253174830}
+  playerControllerScript: {fileID: 5007691}
 --- !u!1 &150020767
 GameObject:
   m_ObjectHideFlags: 0

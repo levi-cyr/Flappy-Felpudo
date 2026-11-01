@@ -5,9 +5,10 @@ public class ShootWeapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public AudioSource shootSoundEffect;
+    public PlayerController playerControllerScript;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerControllerScript.canMove)
         {
             Shoot();
             shootSoundEffect.Play();
