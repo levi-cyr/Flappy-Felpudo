@@ -6,12 +6,20 @@ public class PlayerController : MonoBehaviour
     bool isClicking;
     Vector2 impulse = new Vector2(0, 300f);
     Rigidbody2D playerRb;
+
+    [Header("Player Controller")]
     public float playerSpeed = 3f;
-    public Timer timerScript;
-    public GameObject defeatText;
-    public EnemySpawn enemySpawn;
     public int currentLife = 4;
     public GameObject[] heartIcons;
+    public bool canMove = true;
+
+    [Header("Scripts")]
+    public Timer timerScript;
+    public EnemySpawn enemySpawn;
+
+    [Header("Game Objects")]
+    public GameObject defeatText;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -21,13 +29,10 @@ public class PlayerController : MonoBehaviour
     {
         PlayerVerticalMovement();
     }
-    /*void FixedUpdate()
-    {
-        //PlayerHorizontalMovement();
-    }*/
+
     void PlayerVerticalMovement() // controla a movimentação vertical do player (click do mouse)
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canMove)
         {
             if (!isClicking)
             {
@@ -38,11 +43,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*void PlayerHorizontalMovement() // controla a movimentação horizontal do player (A e D ou <- e ->)
-    {
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        playerRb.linearVelocityX = horizontalMovement * playerSpeed;
-    }*/
     public void TakeDamage(int damage = 1) // chama a morte do player
     {
         currentLife -= damage; // o dano base é 1. Talvez eu coloque que o boss de 2 de dano na terceira fase (ou na segunda, nao sei se vou prosseguir com uma terceira fase)
