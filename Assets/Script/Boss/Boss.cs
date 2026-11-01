@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    public GameObject victoryText;
+    
+    [Header("Boss Control")]
     public int bossLife = 50; // vida do boss
-    public int bossState = 0;
+    public int bossState = 0; // estado do boss / fase que ele está
+
+    [Header("Scripts")]
+    public Score scoreScript;
+    public Timer timerScript;
+    public BossShootWeapon bossShootWeaponScript;
     Rigidbody2D bossRb;
     Animator boosAnim;
-    public Score scoreScript;
-    public GameObject victoryText;
-    public BossShootWeapon bossShootWeaponScript;
+
 
     void Start()
     {
@@ -28,6 +34,7 @@ public class Boss : MonoBehaviour
         if (bossLife <= 0) // caso a vida do boss for menor ou igual a 0 desativamos o gameObject dele
         {
             Die();
+            timerScript.stopTime = true; // para o tempo
         }
     }
 
