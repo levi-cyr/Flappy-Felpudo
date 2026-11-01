@@ -14,13 +14,11 @@ public class Boss : MonoBehaviour
     public Timer timerScript;
     public BossShootWeapon bossShootWeaponScript;
     public WinGameCutscene winGameCutsceneScript;
-    Rigidbody2D bossRb;
     Animator boosAnim;
 
 
     void Start()
     {
-        bossRb = GetComponent<Rigidbody2D>();
         boosAnim = GetComponent<Animator>();
     }
 
