@@ -53,21 +53,6 @@ public class Boss : MonoBehaviour
         {
             ChangePhase(1); // vai para a primeira fase do boss. Removi do switch case pq ele tava chamando toda hora o script no update, entao assim fica melhor
         }
-
-        /*
-        switch (bossState)
-        {
-            case 1:
-
-                break;
-            case 2:
-                Debug.Log("Fase 2 do boss");
-                break;
-            case 3:
-                Debug.Log("Fase final do boss");
-                break;
-        }
-        */
     }
 
     void ChangePhase(int newPhase)
