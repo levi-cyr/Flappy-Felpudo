@@ -4,7 +4,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public GameObject victoryText;
-    
+
     [Header("Boss Control")]
     public int bossLife = 50; // vida do boss
     public int bossState = 0; // estado do boss / fase que ele está
@@ -13,6 +13,7 @@ public class Boss : MonoBehaviour
     public Score scoreScript;
     public Timer timerScript;
     public BossShootWeapon bossShootWeaponScript;
+    public WinGameCutscene winGameCutsceneScript;
     Rigidbody2D bossRb;
     Animator boosAnim;
 
@@ -35,6 +36,7 @@ public class Boss : MonoBehaviour
         {
             Die();
             timerScript.stopTime = true; // para o tempo
+            winGameCutsceneScript.endGame = true; // ativa a chave que verifica se o jogo acabou
         }
     }
 
