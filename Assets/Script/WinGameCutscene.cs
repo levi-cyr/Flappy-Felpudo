@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WinGameCutscene : MonoBehaviour
@@ -16,6 +17,9 @@ public class WinGameCutscene : MonoBehaviour
     [Header("Game Object")]
     public GameObject creditsObject;
     public GameObject creditsMusic;
+    public GameObject playerGameObj;
+
+    public AudioSource planeSound;
 
     void Update()
     {
@@ -26,6 +30,22 @@ public class WinGameCutscene : MonoBehaviour
             bottomAnim.SetTrigger("isEndGame");
             creditsObject.SetActive(true);
             creditsMusic.SetActive(true);
+            TurnSoundOff();
+            StartCoroutine("TurnOffPlayer");
+        }
+    }
+
+    IEnumerator TurnOffPlayer()
+    {
+        yield return new WaitForSeconds(40f);
+        playerGameObj.SetActive(false);
+    }
+
+    void TurnSoundOff()
+    {
+        if(planeSound.volume > 0)
+        {
+            planeSound.volume = planeSound.volume - 0.1f;
         }
     }
 }
