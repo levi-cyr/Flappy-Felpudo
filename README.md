@@ -12,3 +12,11 @@ Play the game clicking [here](https://play.unity.com/en/games/653187e2-bbaa-4f8c
 <img alt="Flappy Felpudo - Thumbnail" src="Thumbnail.png"/>
 
 https://github.com/user-attachments/assets/6f35be67-ab14-422e-b325-55fcbbec1c26
+
+### Assets
+Sound effect:<br>
+https://www.youtube.com/watch?v=CFXoTXQ_h_E<br>
+https://www.youtube.com/watch?v=V-GOtQlJ1HE
+
+Music: <br>
+https://www.youtube.com/watch?v=8GltUyUIUto 
