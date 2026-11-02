@@ -13,7 +13,7 @@ public class GameIntro : MonoBehaviour
     public GameObject timerGameObj;
     public GameObject planeSoundEffect;
     public GameObject gameIconObj;
-    
+
     public CanvasGroup gameIcon;
     public CanvasGroup introBackground;
 
@@ -23,7 +23,7 @@ public class GameIntro : MonoBehaviour
 
     public bool gameStart = false;
     public Button startButton;
-    bool canFade = false;
+    public bool canFade = false;
     void Update()
     {
         if (gameIntro.activeSelf)
@@ -31,16 +31,19 @@ public class GameIntro : MonoBehaviour
             timerScript.stopTime = true; // enquanto a intro estiver rolando, o tempo do jogo fica pausado
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && buttonGameObj.activeSelf && !gameStart) // se apertar o espaço e o botão já estiver em cena, chama a void StartGame() do botão e do script
+        {
+            StartCoroutine("WaitToStart"); // começa uma courotine
+        }
+        FadeIn();
+        TurnOffGameIcon();
+    }
+    void FadeIn()
+    {
         if (introBackground.alpha > 0 && gameStart) // quando o jogo começa faz um fade in para iniciar
         {
             introBackground.alpha = introBackground.alpha - 0.01f;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && buttonGameObj.activeSelf) // se apertar o espaço e o botão já estiver em cena, chama a void StartGame() do botão e do script
-        {
-            StartCoroutine("WaitToStart"); // começa uma courotine
-        }
-        TurnOffGameIcon();
     }
     void TurnOffGameIcon()
     {
