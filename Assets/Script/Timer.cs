@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
         if(timeLeft <= 0)
         {
             stopTime = true;
+            timeLeft = 0;
             scoreScript.CallTheBoss();
         }
     } 

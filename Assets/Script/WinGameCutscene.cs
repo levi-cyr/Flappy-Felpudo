@@ -37,7 +37,7 @@ public class WinGameCutscene : MonoBehaviour
 
     IEnumerator TurnOffPlayer()
     {
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(30f);
         playerGameObj.SetActive(false);
     }
 

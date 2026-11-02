@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public GameObject victoryText;
-
     [Header("Boss Control")]
     public int bossLife = 50; // vida do boss
     public int bossState = 0; // estado do boss / fase que ele está
@@ -41,7 +39,6 @@ public class Boss : MonoBehaviour
     void Die()
     {
         scoreScript.isBossDead = true; // chave de controle para não spawnar boss infinitamente
-        victoryText.SetActive(true); // ativa o texto de vitoria
         gameObject.SetActive(false); //desativa o boss
         scoreScript.enemiesKilled = scoreScript.enemiesKilled + 6200; // pontuação a mais que o boss da
     }
