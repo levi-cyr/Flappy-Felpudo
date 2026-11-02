@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet()
     {
-        if (isExploding) 
+        if (isExploding)
         {
             return;
         }
@@ -34,9 +34,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void ExplodeAndDestroy() 
+    void ExplodeAndDestroy()
     {
-        if (isExploding) 
+        if (isExploding)
         {
             return;
         }
@@ -50,10 +50,11 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hit)
     {
-        if (isExploding) 
+        if (isExploding)
         {
             return;
         }
+
         if (hit.CompareTag("Enemy"))
         {
             Enemy enemyScript = hit.GetComponent<Enemy>();
@@ -65,15 +66,16 @@ public class Bullet : MonoBehaviour
 
             if (scoreScript != null)
             {
-                scoreScript.enemiesKilled++;
+                scoreScript.enemiesKilled = scoreScript.enemiesKilled + 100; // adiciona 100 pontos na pontuação do player
             }
             ExplodeAndDestroy();
         }
+
         if (hit.CompareTag("Boss"))
         {
             ExplodeAndDestroy();
         }
-        if (hit.CompareTag("Limit")) 
+        if (hit.CompareTag("Limit"))
         {
             ExplodeAndDestroy();
         }
