@@ -12,16 +12,18 @@ public class GameIntro : MonoBehaviour
     public GameObject introMusic;
     public GameObject timerGameObj;
     public GameObject planeSoundEffect;
-
-    public CanvasGroup introBackground;
+    public GameObject gameIconObj;
     
+    public CanvasGroup gameIcon;
+    public CanvasGroup introBackground;
+
 
     public Timer timerScript;
     public float introTime;
 
     public bool gameStart = false;
     public Button startButton;
-
+    bool canFade = false;
     void Update()
     {
         if (gameIntro.activeSelf)
@@ -36,7 +38,22 @@ public class GameIntro : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && buttonGameObj.activeSelf) // se apertar o espaço e o botão já estiver em cena, chama a void StartGame() do botão e do script
         {
-            startButton.onClick.Invoke();
+            StartCoroutine("WaitToStart"); // começa uma courotine
+        }
+        TurnOffGameIcon();
+    }
+    void TurnOffGameIcon()
+    {
+        if (canFade)
+        {
+            gameIconObj.GetComponent<Animator>().enabled = false; // desativa o animator
+            gameIcon.alpha = gameIcon.alpha - 0.01f; // da o fade
+            Debug.Log("Movere crus");
+        }
+
+        if (gameIcon.alpha <= 0 && canFade)
+        {
+            canFade = false;
         }
     }
 
@@ -56,5 +73,13 @@ public class GameIntro : MonoBehaviour
         timerScript.stopTime = false; // volta o tempo
         timerGameObj.SetActive(true); // ativa o obj do tempo
         enemySpawn.SetActive(true); // ativa o spawn de inimigo
+    }
+
+    IEnumerator WaitToStart()
+    {
+        canFade = true;
+        Debug.Log("oye como va");
+        yield return new WaitForSeconds(5f);
+        startButton.onClick.Invoke(); // depois de 2 segundos da play no jogo
     }
 }
