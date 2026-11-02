@@ -5,8 +5,9 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TMP_Text timer;
-    public float timeLeft = 60f;
+    public float timeLeft = 15f;
     public bool stopTime;
+    public Score scoreScript;
     void Start()
     {
         stopTime = false;
@@ -18,6 +19,12 @@ public class Timer : MonoBehaviour
         {
             timeLeft = timeLeft - Time.deltaTime;
             timer.text = "Tempo: " + timeLeft.ToString("F0");
+        }
+ 
+        if(timeLeft <= 0)
+        {
+            stopTime = true;
+            scoreScript.CallTheBoss();
         }
     } 
 }

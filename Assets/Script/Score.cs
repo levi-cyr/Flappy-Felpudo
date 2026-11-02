@@ -13,13 +13,12 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        killCountText.text = "Inimigos derrotados: " + enemiesKilled;
-        CallTheBoss();
+        killCountText.text = "Score: " + enemiesKilled;
     }
 
-    void CallTheBoss()
+    public void CallTheBoss()
     {
-        if (enemiesKilled >= 10 && !isBossDead)
+        if (!isBossDead)
         {
             enemySpawn.CancelEnemySpawner(); // cancela o spawn de inimigo
             boss.SetActive(true); // ativa o game objecto do boss

@@ -43,6 +43,7 @@ public class Boss : MonoBehaviour
         scoreScript.isBossDead = true; // chave de controle para não spawnar boss infinitamente
         victoryText.SetActive(true); // ativa o texto de vitoria
         gameObject.SetActive(false); //desativa o boss
+        scoreScript.enemiesKilled = scoreScript.enemiesKilled + 6200; // pontuação a mais que o boss da
     }
 
     void BossAI() // atualizar no futuro | 27/10/2026 implementando algumas coisas
