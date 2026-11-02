@@ -10,3 +10,5 @@ Game developed for the **Game Programming** course. Created using the Unity Engi
 Play the game clicking [here](https://play.unity.com/en/games/653187e2-bbaa-4f8c-9a12-df0955531ba6/flappy-felpudo)
 
 <img alt="Flappy Felpudo - Thumbnail" src="Thumbnail.png"/>
+
+https://github.com/user-attachments/assets/6f35be67-ab14-422e-b325-55fcbbec1c26
