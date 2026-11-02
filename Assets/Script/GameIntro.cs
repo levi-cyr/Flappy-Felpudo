@@ -44,7 +44,7 @@ public class GameIntro : MonoBehaviour
     }
     void TurnOffGameIcon()
     {
-        if (canFade)
+        if (canFade && gameIcon.alpha > 0)
         {
             gameIconObj.GetComponent<Animator>().enabled = false; // desativa o animator
             gameIcon.alpha = gameIcon.alpha - 0.01f; // da o fade
