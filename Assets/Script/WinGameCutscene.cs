@@ -45,7 +45,7 @@ public class WinGameCutscene : MonoBehaviour
     {
         if(planeSound.volume > 0)
         {
-            planeSound.volume = planeSound.volume - 0.1f;
+            planeSound.volume = planeSound.volume - 0.01f;
         }
     }
 }
