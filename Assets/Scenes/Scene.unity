@@ -260,6 +260,7 @@ MonoBehaviour:
   timerScript: {fileID: 554964967}
   enemySpawn: {fileID: 1819816087}
   defeatText: {fileID: 1758963814}
+  planeSound: {fileID: 1552409451}
 --- !u!61 &5007692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2004,6 +2005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8d2923ad443ea4b97544e56dfcad00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameIntro
+  startButton: {fileID: 219425745}
+  startAudio: {fileID: 1253174830}
   gameIntro: {fileID: 1273505773}
   player: {fileID: 5007687}
   enemySpawn: {fileID: 1819816086}
@@ -2017,7 +2020,6 @@ MonoBehaviour:
   timerScript: {fileID: 554964967}
   introTime: 5
   gameStart: 0
-  startButton: {fileID: 219425745}
   canFade: 0
 --- !u!1 &596880191
 GameObject:

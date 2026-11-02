@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameIntro : MonoBehaviour
 {
+    public Button startButton;
+    public AudioSource startAudio;
     [Header("GameObjects")]
     public GameObject gameIntro;
     public GameObject player;
@@ -14,16 +16,19 @@ public class GameIntro : MonoBehaviour
     public GameObject planeSoundEffect;
     public GameObject gameIconObj;
 
+    [Header("Canvas Group")]
     public CanvasGroup gameIcon;
     public CanvasGroup introBackground;
 
-
+    [Header("Scripts")]
     public Timer timerScript;
-    public float introTime;
 
+    [Header("Intro Controller")]
+    public float introTime;
     public bool gameStart = false;
-    public Button startButton;
     public bool canFade = false;
+    public bool canPlayAudio = true;
+
     void Update()
     {
         if (gameIntro.activeSelf)
@@ -80,6 +85,11 @@ public class GameIntro : MonoBehaviour
 
     IEnumerator WaitToStart()
     {
+        if (canPlayAudio)
+        {
+            canPlayAudio = false;
+            startAudio.Play();
+        }
         canFade = true;
         Debug.Log("oye como va");
         yield return new WaitForSeconds(5f);

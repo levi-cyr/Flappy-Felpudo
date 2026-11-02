@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Game Objects")]
     public GameObject defeatText;
-
+    public GameObject planeSound;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         timerScript.stopTime = true; // para o timer
         defeatText.SetActive(true); // mostra a tela de derrota
+        planeSound.SetActive(false);
         enemySpawn.CancelEnemySpawner(); // cancela o spawn de inimigos
     }
 }
